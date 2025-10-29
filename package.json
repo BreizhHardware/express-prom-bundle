@@ -1,6 +1,6 @@
 {
   "name": "@breizhhardware/express-prom-bundle",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "description": "express middleware with popular prometheus metrics in one bundle",
   "main": "src/index.js",
   "keywords": [
@@ -29,9 +29,12 @@
     "url-value-parser": "^2.0.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.38.0",
     "dts": "^0.1.1",
-    "eslint": "^5.11.0",
+    "eslint": "^9.38.0",
     "express": "^5.0.1",
+    "globals": "^16.4.0",
     "istanbul": "^0.4.5",
     "jasme": "^6.0.0",
     "koa": "^2.6.2",

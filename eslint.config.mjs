@@ -1,0 +1,77 @@
+import { defineConfig } from "eslint/config";
+import globals from "globals";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+import js from "@eslint/js";
+import { FlatCompat } from "@eslint/eslintrc";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const compat = new FlatCompat({
+    baseDirectory: __dirname,
+    recommendedConfig: js.configs.recommended,
+    allConfig: js.configs.all
+});
+
+export default defineConfig([{
+    extends: compat.extends("eslint:recommended"),
+
+    languageOptions: {
+        globals: {
+            ...globals.node,
+            app: true,
+            fetch: true,
+        },
+
+        ecmaVersion: 6,
+        sourceType: "module",
+    },
+
+    rules: {
+        indent: [1, 2],
+        "array-bracket-spacing": [2, "never"],
+        "block-scoped-var": 2,
+        "brace-style": [2, "1tbs"],
+        "computed-property-spacing": [2, "never"],
+        curly: 2,
+        "eol-last": 2,
+        eqeqeq: [2, "smart"],
+        "max-depth": [1, 3],
+        "new-cap": 1,
+        "no-extend-native": 2,
+        "no-mixed-spaces-and-tabs": 2,
+        "no-trailing-spaces": 1,
+        "no-unused-vars": 1,
+        "no-use-before-define": [2, "nofunc"],
+        "object-curly-spacing": [2, "never"],
+        quotes: [1, "single", "avoid-escape"],
+        semi: [2, "always"],
+
+        "keyword-spacing": [2, {
+            before: true,
+            after: true,
+        }],
+
+        "space-unary-ops": 2,
+
+        "no-console": [1, {
+            allow: ["info", "warn", "error"],
+        }],
+
+        "max-len": [1, 120],
+        "max-statements": [1, 50],
+        "consistent-this": [2, "self"],
+        "no-var": 2,
+        "no-dupe-class-members": 2,
+        "operator-linebreak": [1, "before"],
+
+        "no-unneeded-ternary": [1, {
+            defaultAssignment: false,
+        }],
+
+        "no-lonely-if": 1,
+        "linebreak-style": [2, "unix"],
+        "no-nested-ternary": 2,
+        "require-yield": 2,
+    },
+}]);
