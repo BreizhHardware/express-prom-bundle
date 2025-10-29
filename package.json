@@ -1,6 +1,6 @@
 {
-  "name": "express-prom-bundle",
-  "version": "8.0.1",
+  "name": "@breizhhardware/express-prom-bundle",
+  "version": "8.0.2",
   "description": "express middleware with popular prometheus metrics in one bundle",
   "main": "src/index.js",
   "keywords": [
@@ -21,7 +21,7 @@
     "coverage": "make coverage",
     "test-types": "tsd"
   },
-  "author": "Konstantin Pogorelov <or@pluseq.com>",
+  "author": "BreizhHardware <felix.marquet@horoquartz.com>",
   "license": "MIT",
   "dependencies": {
     "@types/express": "^5.0.0",
@@ -47,7 +47,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jochen-schweizer/express-prom-bundle.git"
+    "url": "git+https://github.com/breizhhardware/express-prom-bundle.git"
   },
   "engines": {
     "node": ">=18"

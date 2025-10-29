@@ -2,7 +2,8 @@
 
 # express prometheus bundle
 
-Express middleware with popular prometheus metrics in one bundle. It's also compatible with koa v1 and v2 (see below).
+Express middleware with popular prometheus metrics in one bundle. It's also compatible with koa v1 and v2 (see below). This package is a fork from the one from 
+[Jochen Schweizer](https://github.com/jochen-schweizer/express-prom-bundle).
 
 This library uses **prom-client v15+** as a peer dependency. See: https://github.com/siimon/prom-client
 
