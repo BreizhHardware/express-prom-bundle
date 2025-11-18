@@ -1,4 +1,4 @@
-[![build status](https://travis-ci.org/jochen-schweizer/express-prom-bundle.png)](https://travis-ci.org/jochen-schweizer/express-prom-bundle) [![Coverage Status](https://coveralls.io/repos/github/jochen-schweizer/express-prom-bundle/badge.svg?branch=master)](https://coveralls.io/github/jochen-schweizer/express-prom-bundle?branch=master) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://www.tldrlegal.com/l/mit) [![NPM version](https://badge.fury.io/js/express-prom-bundle.png)](http://badge.fury.io/js/express-prom-bundle)
+[![CI](https://github.com/BreizhHardware/express-prom-bundle/actions/workflows/release.yml/badge.svg)](https://github.com/BreizhHardware/express-prom-bundle/actions/workflows/release.yml) [![Coverage Status](https://coveralls.io/repos/github/BreizhHardware/express-prom-bundle/badge.svg?branch=main)](https://coveralls.io/github/BreizhHardware/express-prom-bundle?branch=main) [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)](https://www.tldrlegal.com/l/mit) [![NPM version](https://badge.fury.io/js/%40breizhhardware%2Fexpress-prom-bundle.png)](http://badge.fury.io/js/%40breizhhardware%2Fexpress-prom-bundle)
 
 # express prometheus bundle
 
@@ -17,13 +17,13 @@ Included metrics:
 ## Install
 
 ```
-npm install prom-client express-prom-bundle
+npm install prom-client @breizhhardware/express-prom-bundle
 ```
 
 ## Sample Usage
 
 ```javascript
-const promBundle = require("express-prom-bundle");
+const promBundle = require("@breizhhardware/express-prom-bundle");
 const app = require("express")();
 const metricsMiddleware = promBundle({includeMethod: true});
 
@@ -182,7 +182,7 @@ setup std. metrics but exclude `up`-metric:
 ```javascript
 const express = require("express");
 const app = express();
-const promBundle = require("express-prom-bundle");
+const promBundle = require("@breizhhardware/express-prom-bundle");
 
 // calls to this route will not appear in metrics
 // because it's applied before promBundle
@@ -207,7 +207,7 @@ See an [advanced example on github](https://github.com/jochen-schweizer/express-
 ## koa v2 example
 
 ```javascript
-const promBundle = require("express-prom-bundle");
+const promBundle = require("@breizhhardware/express-prom-bundle");
 const Koa = require("koa");
 const c2k = require("koa-connect");
 const metricsMiddleware = promBundle({/* options */ });
@@ -228,7 +228,7 @@ which returns an aggregate of all metrics from all the workers.
 
 ``` javascript
 const cluster = require('cluster');
-const promBundle = require('express-prom-bundle');
+const promBundle = require('@breizhhardware/express-prom-bundle');
 const promClient = require('prom-client');
 const numCPUs = Math.max(2, require('os').cpus().length);
 const express = require('express');
