@@ -17,13 +17,13 @@ Included metrics:
 ## Install
 
 ```
-npm install prom-client express-prom-bundle
+npm install prom-client @breizhhardware/express-prom-bundle
 ```
 
 ## Sample Usage
 
 ```javascript
-const promBundle = require("express-prom-bundle");
+const promBundle = require("@breizhhardware/express-prom-bundle");
 const app = require("express")();
 const metricsMiddleware = promBundle({includeMethod: true});
 
@@ -182,7 +182,7 @@ setup std. metrics but exclude `up`-metric:
 ```javascript
 const express = require("express");
 const app = express();
-const promBundle = require("express-prom-bundle");
+const promBundle = require("@breizhhardware/express-prom-bundle");
 
 // calls to this route will not appear in metrics
 // because it's applied before promBundle
@@ -207,7 +207,7 @@ See an [advanced example on github](https://github.com/jochen-schweizer/express-
 ## koa v2 example
 
 ```javascript
-const promBundle = require("express-prom-bundle");
+const promBundle = require("@breizhhardware/express-prom-bundle");
 const Koa = require("koa");
 const c2k = require("koa-connect");
 const metricsMiddleware = promBundle({/* options */ });
@@ -228,7 +228,7 @@ which returns an aggregate of all metrics from all the workers.
 
 ``` javascript
 const cluster = require('cluster');
-const promBundle = require('express-prom-bundle');
+const promBundle = require('@breizhhardware/express-prom-bundle');
 const promClient = require('prom-client');
 const numCPUs = Math.max(2, require('os').cpus().length);
 const express = require('express');
