@@ -1,0 +1,12 @@
+{
+    "name": "Node.js 24",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {
+            "nodeGypDependencies": true,
+            "version": "lts",
+            "nvmVersion": "latest"
+        },
+        "ghcr.io/devcontainers/features/git-lfs:1": {}
+    }
+}
