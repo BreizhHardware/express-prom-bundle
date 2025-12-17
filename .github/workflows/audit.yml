@@ -1,0 +1,42 @@
+name: Security Audit
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches:
+      - '**'
+  schedule:
+    - cron: '0 8 * * *' 
+  workflow_dispatch: 
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run security audit
+        id: audit
+        run: npm audit --audit-level moderate
+        continue-on-error: true
+
+      - name: Create issue on failure
+        if: steps.audit.outcome == 'failure'
+        uses: actions/github-script@v8
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: 'Security Audit Failed',
+              body: 'The daily security audit has failed. Please check the workflow run for details: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}',
+              labels: ['security', 'audit']
+            });
