@@ -37,15 +37,24 @@ jobs:
   publish:
     needs: test
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - uses: actions/checkout@v6
-      - name: Use Node.js 18
+      - name: Use Node.js 22
         uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 22
           registry-url: 'https://registry.npmjs.org'
+          scope: '@breizhhardware'
+      - name: Debug GitHub OIDC context
+        run: |
+          echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY"
+          echo "GITHUB_REF=$GITHUB_REF"
+          echo "GITHUB_WORKFLOW_REF=$GITHUB_WORKFLOW_REF"
       - run: npm ci
-      - run: npm publish --provenance --access public
+      - run: npm publish --provenance --access public --registry=https://registry.npmjs.org
 
   release:
     needs: publish
