@@ -1,6 +1,6 @@
 {
   "name": "@breizhhardware/express-prom-bundle",
-  "version": "8.0.7",
+  "version": "8.0.8",
   "description": "express middleware with popular prometheus metrics in one bundle",
   "main": "src/index.js",
   "keywords": [
