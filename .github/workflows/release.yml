@@ -46,13 +46,19 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 22
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@breizhhardware'
       - name: Debug GitHub OIDC context
         run: |
           echo "GITHUB_REPOSITORY=$GITHUB_REPOSITORY"
           echo "GITHUB_REF=$GITHUB_REF"
           echo "GITHUB_WORKFLOW_REF=$GITHUB_WORKFLOW_REF"
+      - name: Show Node and npm versions
+        run: |
+          node --version
+          npm --version
+      - name: Update npm for Trusted Publishing
+        run: npm install -g npm@latest
+      - name: Ensure no legacy npm auth token is set
+        run: npm config delete //registry.npmjs.org/:_authToken || true
       - run: npm ci
       - run: npm publish --provenance --access public --registry=https://registry.npmjs.org
 
