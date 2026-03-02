@@ -43,7 +43,7 @@
     "supertest-koa-agent": "^0.3.0",
     "tsd": "^0.33.0",
     "typescript": "^5.9.3",
-    "nyc": "^17.1.0"
+    "nyc": "^18.0.0"
   },
   "peerDependencies": {
     "prom-client": ">=15.0.0"
